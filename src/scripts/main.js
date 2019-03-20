@@ -64,22 +64,22 @@ const outEl = document.querySelector("#output")
 //     outEl.innerHTML += "<hr/>"
 //   });
 
-outEl.innerHTML += "<h1>Purchasing Agents</h1>";
+// outEl.innerHTML += "<h1>Purchasing Agents</h1>";
 
 /*
     Using map(), you extract the purchasing agent object
     from each business and store it in a new array
 */
-const agents = businesses.map(business => {
-        return {
+// const agents = businesses.map(business => {
+//         return {
 
-            "fullName": business.purchasingAgent.nameFirst + " " + business.purchasingAgent.nameLast,
-            "company": business.companyName,
-            "phoneNumber": business.phoneWork
-        }
-    }
+//             "fullName": business.purchasingAgent.nameFirst + " " + business.purchasingAgent.nameLast,
+//             "company": business.companyName,
+//             "phoneNumber": business.phoneWork
+//         }
+//     }
 
-)
+// )
 
 // console.log(agents)
 
@@ -127,19 +127,41 @@ const agents = businesses.map(business => {
 
 
 
-const monthlyRainfall = [23, 13, 27, 20, 20, 31, 33, 26, 19, 12, 14, 12, 10]
+// const monthlyRainfall = [23, 13, 27, 20, 20, 31, 33, 26, 19, 12, 14, 12, 10]
 
-const totalRainfall = monthlyRainfall.reduce((x, y) => {
-    return (x/y) * y
-})
+// const totalRainfall = monthlyRainfall.reduce((x, y) => {
+//     return (x/y) * y
+// })
 
-console.log(totalRainfall)
+// console.log(totalRainfall)
 
 
-const words = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+// const words = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
 
-const sentence = words.reduce((x, y) => {
-    return x + " " + y
-})
+// const sentence = words.reduce((x, y) => {
+//     return x + " " + y
+// })
 
-console.log(sentence)
+// console.log(sentence)
+
+
+
+//Big spenders practice exercise
+
+// Array to contain all the big spenders
+const bigSpenders = businesses.filter (business => {
+    let spender = false
+    
+    business.orders.forEach(order => {
+        if (order > 9000){
+            spender = true
+        }
+    })
+    
+    return spender
+}
+)
+
+console.log(bigSpenders)
+
+//Big spenders practice end
